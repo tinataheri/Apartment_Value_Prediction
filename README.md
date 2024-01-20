@@ -6,6 +6,7 @@ This was fixed by using the mode for the categorical missing values and knnImput
 Upon cleaning the data and saving the important features, the correlation between them is displayed down below.
 
 2021 dataset:
+
 ![Picture2](https://github.com/tinataheri/Apartment_Value_Prediction/assets/79693066/e3c775d6-e50f-4f10-b1de-5ea197692191)
 
 2023 dataset:
