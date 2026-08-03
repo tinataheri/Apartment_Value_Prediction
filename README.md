@@ -1,36 +1,39 @@
-The data cleaning process consisted of checking the types and languages of the datasets and fixing any mismatch between the 2021 and 2023 dataset. One noticeable feature about the dataset was the amount of missing data.
+# Tehran Apartment Value Prediction
 
-![Picture1](https://github.com/tinataheri/Apartment_Value_Prediction/assets/79693066/de612a57-45fb-4cc4-9b24-42514cb35fa9)
+An exploratory machine-learning project that cleans and harmonises Tehran apartment listings from 2021 and 2023, analyses price-related factors, and evaluates how regression models generalise across years.
 
-This was fixed by using the mode for the categorical missing values and knnImputing for numerical values such as area and price. 
-Upon cleaning the data and saving the important features, the correlation between them is displayed down below.
+## Project workflow
 
-2021 dataset:
+1. Standardise column types, text values, and district labels across both datasets.
+2. Identify shared districts and select comparable features.
+3. Impute missing categorical and numerical values.
+4. Explore feature distributions and correlations.
+5. Train and tune linear, gradient-boosting, and XGBoost regression models.
+6. Compare within-year performance and cross-year predictions to investigate dataset shift.
 
-![Picture2](https://github.com/tinataheri/Apartment_Value_Prediction/assets/79693066/e3c775d6-e50f-4f10-b1de-5ea197692191)
+## Repository guide
 
-2023 dataset:
+| File | Purpose |
+| --- | --- |
+| `DS_project_cleaning.ipynb` | Cleaning, harmonisation, imputation, and feature preparation |
+| `EDA.ipynb` | Exploratory analysis and visualisation |
+| `Reg_Price_Pred.ipynb` | Modelling, tuning, feature importance, and cross-year evaluation |
+| `data/data` | Project data asset used by the notebooks |
 
-(The blue lines display bad value as there is a tangible difference between the classes.)
-1.0    136787
-0.0     33737
+## Methods and tools
 
-![Picture4](https://github.com/tinataheri/Apartment_Value_Prediction/assets/79693066/33ae0b01-73ac-4186-82b8-f5ac5e067fd0)
+Python, pandas, NumPy, seaborn, matplotlib, scikit-learn, XGBoost, train/test evaluation, grid search, MAE, MSE, and feature-importance analysis.
 
-After analyzing the data and correlations, a regression model was trained on the 2023 data. The following plot displays the most important feature of the model with the highest accuracy.
+## Running the notebooks
 
-![Picture5](https://github.com/tinataheri/Apartment_Value_Prediction/assets/79693066/9dead3f5-06c1-48b0-92f8-90aab01efaba)
+Install Jupyter, pandas, NumPy, matplotlib, seaborn, scikit-learn, and XGBoost. Run the notebooks in this order:
 
-The same model was fine tuned on the 2021 dataset, although because of it’s high number of missing data, the model’s accuracy was noticeably lower than the 2023 model.
+1. `DS_project_cleaning.ipynb`
+2. `EDA.ipynb`
+3. `Reg_Price_Pred.ipynb`
 
-![Picture6](https://github.com/tinataheri/Apartment_Value_Prediction/assets/79693066/56c05dfd-e6ff-4d38-8601-13542470591d)
+Some notebook paths may need adjustment for your local data location.
 
-Afterwards, the 2021 dataset was given to the 2023 model to predict its price in 2023. 
+## Scope and limitations
 
-![Picture7](https://github.com/tinataheri/Apartment_Value_Prediction/assets/79693066/d723915f-f5b1-4508-8a33-c6f2b420c2b1)
-
-And 2023 data on the 2021 model.
-
-![Picture8](https://github.com/tinataheri/Apartment_Value_Prediction/assets/79693066/6bb81346-25d4-4d96-9452-492657d57030)
-
-
+This is an exploratory portfolio project, not a production valuation system. Listing data contains missing and inconsistent values, while market conditions differ between years. Cross-year results should be interpreted as an investigation of generalisation rather than financial advice.
